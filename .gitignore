@@ -1,0 +1,7 @@
+.grunt
+.lock-wscript
+build/Release
+node_modules
+.idea
+.vscode
+.DS_Store
