@@ -7,7 +7,7 @@
 
 ```
 import { Application } from "stimulus"
-import Select2Controller from 'stimulus-tabs'
+import Select2Controller from 'stimulus-select2'
 
 const application = Application.start()
 application.register("select2", Select2Controller)

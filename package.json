@@ -1,10 +1,10 @@
 {
   "name": "stimulus-select2",
-  "version": "0.0.1",
-  "description": "Integrates select2 with stimulus.js",
+  "version": "0.0.2",
+  "description": "Select2 integration for stimulus.js",
   "main": "lib/stimulus-select2.js",
   "scripts": {
-    "build": "webpack --env dev && webpack --env build && npm run test",
+    "build": "webpack --env dev && webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev"
   },
   "repository": {
@@ -46,6 +46,6 @@
     "yargs": "^10.0.3"
   },
   "dependencies": {
-    "stimulus": "^1.1.1",
+    "stimulus": "^1.1.1"
   }
 }

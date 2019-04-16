@@ -14,7 +14,6 @@ export default class extends Controller {
   initializeSelect2() {
     const placeholder = this.data.get('placeholder');
 
-    console.log(this.data.get('testeing'));
     this.select.select2({
       placeholder: placeholder
     });
