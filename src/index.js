@@ -1,20 +1,28 @@
 import { Controller } from 'stimulus';
 
+let parseSelect2OptionName = (item) => {
+  item = item.slice(7);
+  return item.charAt(0).toLowerCase() + item.slice(1);
+}
+
 export default class extends Controller {
   get select() {
     return $(this.element);
   }
 
   get options() {
-    var options = {};
-    const placeholder = this.data.get('placeholder');
+    let data = this.select.data();
+    let options = {};
 
-    console.log(this.select.data());
-    if (placeholder) {
-      options = { ...options, placeholder };
+    for (let item in data) {
+      if (item.indexOf('select2') > -1) {
+        options = { ...options, [parseSelect2OptionName(item)]: data[item] };
+      }
     }
+
     return options;
   }
+
   connect() {
     this.select.select2(this.options);
   }
