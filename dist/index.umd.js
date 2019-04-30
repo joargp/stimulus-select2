@@ -26,21 +26,6 @@
     return Constructor;
   }
 
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
   function _inherits(subClass, superClass) {
     if (typeof superClass !== "function" && superClass !== null) {
       throw new TypeError("Super expression must either be null or a function");
@@ -88,6 +73,11 @@
     return _assertThisInitialized(self);
   }
 
+  let parseSelect2OptionName = item => {
+    item = item.slice(7);
+    return item.charAt(0).toLowerCase() + item.slice(1);
+  };
+
   let _default =
   /*#__PURE__*/
   function (_Controller) {
@@ -102,32 +92,38 @@
     _createClass(_default, [{
       key: "connect",
       value: function connect() {
-        this.initializeSelect2();
+        this.select.select2(this.options);
       }
     }, {
-      key: "initializeSelect2",
-      value: function initializeSelect2() {
-        const placeholder = this.data.get('placeholder');
-        this.select.select2({
-          placeholder: placeholder
-        });
-      }
-    }, {
-      key: "select2unmount",
-      value: function select2unmount() {
+      key: "disconnect",
+      value: function disconnect() {
         this.select.select2('destroy');
       }
     }, {
       key: "select",
       get: function () {
-        return $(this.selectTarget);
+        return $(this.element);
+      }
+    }, {
+      key: "options",
+      get: function () {
+        let data = this.select.data();
+        let options = {};
+
+        for (let item in data) {
+          if (item.indexOf('select2') > -1) {
+            options = { ...options,
+              [parseSelect2OptionName(item)]: data[item]
+            };
+          }
+        }
+
+        return options;
       }
     }]);
 
     return _default;
   }(stimulus.Controller);
-
-  _defineProperty(_default, "targets", ['select']);
 
   return _default;
 

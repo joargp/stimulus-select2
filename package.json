@@ -1,6 +1,6 @@
 {
   "name": "stimulus-select2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Select2 integration for stimulus.js",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",

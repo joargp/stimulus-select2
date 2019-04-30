@@ -1,9 +1,5 @@
 import { Controller } from 'stimulus';
-
-let parseSelect2OptionName = (item) => {
-  item = item.slice(7);
-  return item.charAt(0).toLowerCase() + item.slice(1);
-}
+import { parseSelect2OptionName } from './parseSelect2OptionName';
 
 export default class extends Controller {
   get select() {
