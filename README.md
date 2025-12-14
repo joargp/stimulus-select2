@@ -1,5 +1,7 @@
 # Select2 integration for Stimulus
 
+[![npm version](https://img.shields.io/npm/v/stimulus-select2.svg)](https://www.npmjs.com/package/stimulus-select2)
+
 Lightweight controller that wires [Select2](https://select2.org) to [`@hotwired/stimulus`](https://stimulus.hotwired.dev/).
 
 ## Install
