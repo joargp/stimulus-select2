@@ -1,5 +1,5 @@
-import { Application } from 'stimulus';
-import Select2Controller from '../src/index';
+import { Application } from "@hotwired/stimulus";
+import Select2Controller from "../src/index";
 
 const application = Application.start();
 

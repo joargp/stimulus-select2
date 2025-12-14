@@ -1,33 +1,45 @@
-# Select 2 integration for Stimulus.js
+# Select2 integration for Stimulus
+
+Lightweight controller that wires [Select2](https://select2.org) to [`@hotwired/stimulus`](https://stimulus.hotwired.dev/).
+
+## Install
+
+```bash
+npm install stimulus-select2 @hotwired/stimulus jquery select2
+```
 
 ## Usage
 
-1. Install with `npm install stimulus-select2`
-2. Register component with [Stimulus](https://github.com/stimulusjs/stimulus)
+Make sure Select2 is loaded (via a bundler import or script tag) before the controller connects.
 
 ```js
-import { Application } from "stimulus"
-import Select2Controller from 'stimulus-select2'
+import { Application } from "@hotwired/stimulus";
+import Select2Controller from "stimulus-select2";
+import "select2";
+import "select2/dist/css/select2.css";
 
-const application = Application.start()
-application.register("select2", Select2Controller)
+const application = Application.start();
+application.register("select2", Select2Controller);
 ```
 
-3. Sprinkle your html
-   
 ```html
-<select data-controller="select2">
-  <option value="blue">blue</option>
-  <option value="green">green</option>
-  <option value="red">red</option>
+<select
+  data-controller="select2"
+  data-select2-placeholder="Pick a color"
+  data-select2-width="style"
+>
+  <option></option>
+  <option value="blue">Blue</option>
+  <option value="green">Green</option>
+  <option value="red">Red</option>
 </select>
 ```
 
+Any `data-select2-*` attributes are converted to Select2 options using the same camelCasing that jQuery applies to `data-*` keys.
+
 ## Development
 
-* `npm run build` - build version for distribution `lib` folder
-* `npm run dev` - build with a watcher
-
-### Releases
-
-Project must be built (to 'lib' folder) before publishing to npm.
+- `npm run build` – generate `dist` bundles (CJS, ESM, and UMD)
+- `npm test` – run the Vitest suite
+- `npm run dev` – watch and rebuild the bundles
+- `npm run demo` – build and open a local browser demo at `/demo`

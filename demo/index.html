@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stimulus-select2 demo</title>
+    <link href="../node_modules/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+        padding: 2rem;
+        background: #f7f7f9;
+      }
+      main {
+        background: #fff;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+        max-width: 520px;
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 1.4rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      .field {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Select2 + Stimulus</h1>
+      <div class="field">
+        <label for="colors">Choose a color</label>
+        <select
+          id="colors"
+          data-controller="select2"
+          data-select2-placeholder="Pick a color"
+          data-select2-width="style"
+          style="width: 100%"
+        >
+          <option></option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="red">Red</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="multiple">Multi select</label>
+        <select
+          id="multiple"
+          multiple
+          data-controller="select2"
+          data-select2-placeholder="Pick colors"
+          data-select2-width="style"
+          style="width: 100%"
+        >
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+        </select>
+      </div>
+    </main>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/select2/dist/js/select2.full.min.js"></script>
+    <script src="https://unpkg.com/@hotwired/stimulus/dist/stimulus.umd.js"></script>
+    <script src="/dist/index.umd.js"></script>
+    <script>
+      (() => {
+        const application = Stimulus.Application.start();
+        application.register("select2", StimulusSelect2);
+      })();
+    </script>
+  </body>
+</html>
