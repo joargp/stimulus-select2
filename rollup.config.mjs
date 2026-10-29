@@ -4,7 +4,6 @@ import { fileURLToPath } from "node:url";
 import { babel } from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import filesize from "rollup-plugin-filesize";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,7 +47,6 @@ export default {
       babelrc: false,
       configFile: false,
       presets: [["@babel/preset-env", { targets: "defaults" }]]
-    }),
-    filesize()
+    })
   ]
 };
